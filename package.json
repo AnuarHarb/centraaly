@@ -1,0 +1,14 @@
+{
+  "name": "centraaly",
+  "version": "1.0.0",
+  "description": "Un e-comerce para practicar crear apis",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anuar Harb",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
