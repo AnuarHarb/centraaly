@@ -3,20 +3,12 @@ const app = express(); //Ejecutamos express para acceder a sus metodos y funcion
 const port = 8080;
 const chalk = require('chalk'); // Pinta colores en la consola
 
-
-//Rutas
-app.get('/', (req, res) => {
-  res.send('Estoy respondinedo algo');
-});
-
-// app.post()
-// app.put()
-// app.delete()
-
-
-
 // Escuchar peticiones en un puerto
 app.listen(port /*8080*/, () => {
   console.log(`Escuchando en el puerto ${port}...`);
   console.log(chalk.cyan(`http://localhost:${port}`));
 });
+
+//Routes
+const api = require('./api'); //importamos el index de la carpeta api para poder utilizarlo en caso de que se haga una petición a esa ruta
+app.use('/api', api);
