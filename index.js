@@ -4,7 +4,7 @@ const port = 8080;
 const chalk = require('chalk'); // Pinta colores en la consola
 const mongoose = require('mongoose');
 
-var dbUrl = "mongodb+srv://andrea:code@centraal-academy-rcmzy.gcp.mongodb.net/test?retryWrites=true";
+var dbUrl = process.env.ATLAS_URL;
 // "mongodb+srv://user:centraal123@centraalacademy-qsrt2.gcp.mongodb.net/test?retryWrites=true"
 mongoose.connect(dbUrl);
 
