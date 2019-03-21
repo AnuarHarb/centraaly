@@ -1,5 +1,7 @@
+const products = require('../../db');
+
 function getProducts(req, res) {
-  res.send('Estas haciendo una petición a products');
+  res.json(products);
 }
 
 module.exports = getProducts;

@@ -8,6 +8,7 @@ router.all('/', function(req, res) {
   });
 })
 
+
 router.use('/products', products);
 
 module.exports = router;
