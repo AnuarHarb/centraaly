@@ -1,18 +1,31 @@
-const products = require('../../db');
+const Product = require('../models/product');
 
 function editProduct(req, res) {
   const productId = req.params.id;
-  const newProduct = req.body;
-  const itemsList = products.items;
 
-  for(let key in itemsList) {
-    if(itemsList[key].id == productId) {
-      newProduct.id = itemsList[key].id;
-      itemsList[key] = newProduct;
-      res.send(newProduct).status(202);
+  Product.update({ _id: req.params.id }, {
+    $set: {
+      nombre: req.body.nombre,
+      tipo: req.body.tipo,
+      precio: req.body.precio,
+      talla: req.body.talla,
+      color: req.body.color,
+      stock: {
+        sur: req.body.stock.sur,
+        norte: req.body.stock.norte
+      }
     }
-  }
-  res.send('No existe ese id').status(404);
+  })
+  .then(result => {
+    res.status(200).json({
+      message: 'Se modificó el elemento correctamente'
+    })
+  })
+  .catch(err => {
+    res.status(500).json({
+      error: err
+    })
+  })
 }
 
 module.exports = editProduct;

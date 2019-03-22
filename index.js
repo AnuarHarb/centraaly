@@ -4,16 +4,13 @@ const port = 8080;
 const chalk = require('chalk'); // Pinta colores en la consola
 const mongoose = require('mongoose');
 
-var dbUrl = process.env.ATLAS_URL;
-// "mongodb+srv://user:centraal123@centraalacademy-qsrt2.gcp.mongodb.net/test?retryWrites=true"
-mongoose.connect(dbUrl);
-
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  // we're connected!
-  console.log('connected')
-});
+mongoose.connect(process.env.MONGO_ATLAS)
+  .then(result => {
+    console.log('connected');
+  })
+  .catch(err => {
+    console.log(err)
+  })
 
 // Escuchar peticiones en un puerto
 app.listen(port /*8080*/, () => {
