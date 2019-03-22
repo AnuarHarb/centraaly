@@ -1,0 +1,5 @@
+{
+  "env": {
+    "MONGO_ATLAS": "mongodb+srv://user:centraal123@centraalacademy-qsrt2.gcp.mongodb.net/test?retryWrites=true"
+  }
+}
